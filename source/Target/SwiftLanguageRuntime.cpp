@@ -2667,6 +2667,9 @@ bool SwiftLanguageRuntime::FixupReference(lldb::addr_t &addr,
     case llvm::Triple::ArchType::x86_64:
       addr &= ~SWIFT_ABI_X86_64_SWIFT_SPARE_BITS_MASK;
       break;
+    case llvm::Triple::ArchType::systemz:
+      addr &= ~SWIFT_ABI_S390X_SWIFT_SPARE_BITS_MASK;
+      break;
     default:
       llvm_unreachable("unsupported arch");
       break;
